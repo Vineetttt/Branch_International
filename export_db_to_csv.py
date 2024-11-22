@@ -5,11 +5,11 @@ import
 
 # Database connection parameters
 db_params = {
-    'host': 'branchhomeworkdb.cv8nj4hg6yra.ap-south-1.rds.amazonaws.com',
-    'port': 5432,
-    'database': 'branchdsprojectgps',
-    'user': 'datascientist',
-    'password': '47eyYBLT0laW5j9U24Uuy8gLcrN'
+    'host': os.getenv('DB_HOST'),
+    'port': os.getenv('DB_PORT', 5432),
+    'database': os.getenv('DB_NAME'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD')
 }
 
 connection_string = f"postgresql://{db_params['user']}:{db_params['password']}@{db_params['host']}:{db_params['port']}/{db_params['database']}"
